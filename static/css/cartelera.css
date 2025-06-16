@@ -1,0 +1,48 @@
+/* cartelera.css */
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+
+.card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 420px;
+    object-fit: cover;
+    background: #222;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.card-text {
+    font-size: 1rem;
+    min-height: 80px;
+    color: #d1d1d1;
+}
+
+.card-footer {
+    background: transparent;
+    border-top: none;
+    font-size: 0.95rem;
+}
+.card-footer .text-muted {
+    color: #b0b0b0 !important;
+}
+
+h2.mb-4 {
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+}
