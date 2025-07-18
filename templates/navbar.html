@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4 mb-5">
     <div class="container">
-        <a class="navbar-brand" href="#">Mini Cine</a>
+        <a class="navbar-brand" href="{% url 'dashboard' %}">
+            <img src="{% static 'img/cine-logotipo.png' %}" alt="Logo" class="img-fluid" style="width: 50px; height: 50px;">
+            Mini Cine
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,7 +18,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link active text-warning" href="{% url 'dashboard' %}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link text-warning" href="{% url 'api_movie' %}">Cartelera</a></li>
-                <li class="nav-item"><a class="nav-link text-warning" href="#">Próximos Estrenos</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="{% url 'upcoming_releases' %}">Próximos Estrenos</a></li>
                 <li class="nav-item"><a class="nav-link text-warning" href="{% url 'contact' %}">Contacto</a></li>
             </ul>
         </div>
