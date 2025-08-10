@@ -1,0 +1,469 @@
+.mobile-icon-nav {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+}
+
+.mobile-icon {
+    color: #ffc107;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 50%;
+    background: rgba(255, 193, 7, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+}
+
+.mobile-icon:hover {
+    color: #fff;
+    background: rgba(255, 193, 7, 0.3);
+    transform: scale(1.1);
+}
+
+.mobile-icon i {
+    font-size: 0.95rem;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #ffc107;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
+}
+
+.scroll-to-top.show {
+    display: flex;
+}
+
+@media (max-width: 991px) {
+    .mobile-icon-nav {
+        display: flex;
+    }
+
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .scroll-to-top {
+        display: none;
+    }
+
+    .scroll-to-top.show {
+        display: flex;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+    }
+
+    .btn-primary {
+        background: #ffc107;
+        border: none;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background: #e0a800;
+        color: #000;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+    }
+
+    .btn-secondary {
+        padding: 10px 18px;
+        font-size: 1rem;
+    }
+
+    .btn-sm {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .navbar-brand img {
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+    .mobile-icon {
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+    }
+
+    .mobile-icon i {
+        font-size: 1.1rem;
+    }
+
+    .mobile-icon-nav {
+        gap: 1.2rem;
+    }
+
+    footer {
+        padding: 2rem 0 !important;
+    }
+
+    footer .container {
+        padding: 1rem 2rem;
+    }
+
+    footer h5 {
+        font-size: 1.2rem;
+    }
+
+    footer p, footer a {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        font-size: 1.15rem;
+        border-radius: 10px;
+        min-width: 120px;
+    }
+
+    .btn-primary {
+        background: #ffc107;
+        border: none;
+        color: #000;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(255, 193, 7, 0.2);
+    }
+
+    .btn-primary:hover {
+        background: #e0a800;
+        color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(255, 193, 7, 0.4);
+    }
+
+    .scroll-to-top {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 360px) {
+    .mobile-icon-nav {
+        gap: 0.8rem;
+    }
+
+    .mobile-icon {
+        width: 38px;
+        height: 38px;
+        padding: 7px;
+    }
+
+    .mobile-icon i {
+        font-size: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 1.05rem;
+        border-radius: 8px;
+        min-width: 100px;
+    }
+
+    .btn-primary {
+        background: #ffc107;
+        border: none;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background: #e0a800;
+        color: #000;
+    }
+
+    .scroll-to-top {
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .mobile-icon-nav {
+        gap: 0.6rem;
+    }
+
+    .mobile-icon {
+        width: 35px;
+        height: 35px;
+        padding: 6px;
+    }
+
+    .mobile-icon i {
+        font-size: 0.95rem;
+    }
+
+    .navbar-brand {
+        font-size: 0.95rem;
+    }
+
+    .navbar-brand img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 1rem;
+        border-radius: 6px;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .btn-primary {
+        background: #ffc107;
+        border: none;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background: #e0a800;
+        color: #000;
+    }
+
+    .btn-sm {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .scroll-to-top {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container, .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .btn-mobile-full {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 12px 16px;
+        font-size: 1.05rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #lottie-preloader {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .btn-group .btn {
+        margin: 2px;
+        flex: 1;
+    }
+
+    .form-control {
+        padding: 12px 16px;
+        font-size: 1.05rem;
+        border-radius: 8px;
+    }
+
+    .input-group-text {
+        padding: 12px 16px;
+        font-size: 1.05rem;
+    }
+}
+
+.navbar-brand {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffc107;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-brand {
+        font-size: 1.4rem !important;
+    }
+
+    .nav-link {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.95rem !important;
+    }
+
+    footer .gap-4 {
+        gap: 1.5rem !important;
+    }
+}
+
+.movie-card {
+    transition: all 0.3s ease;
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 193, 7, 0.3) !important;
+}
+
+.movie-card:hover .movie-poster {
+    transform: scale(1.05);
+}
+
+.movie-card .card-body {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(33, 37, 41, 0.9) 100%);
+}
+
+.form-control:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    background-color: #1a1a1a !important;
+    color: #fff !important;
+}
+
+.social-contact-card {
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.social-contact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 193, 7, 0.1) !important;
+}
+
+.hero-section {
+    border: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem !important;
+    }
+
+    .display-5 {
+        font-size: 1.5rem !important;
+    }
+
+    .movie-card:hover {
+        transform: none;
+    }
+
+    .social-contact-card {
+        min-width: 100px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
