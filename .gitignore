@@ -1,0 +1,8 @@
+#Ignorar las variables de entorno
+.env
+
+#Ignorar base de datos SQLite
+*.db-sqlite3
+
+#Ignorar Entornos de desarrollo
+entorno
