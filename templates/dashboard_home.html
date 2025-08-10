@@ -4,46 +4,88 @@
 {% block title %}Mini Cine{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 {% endblock %}
 
 {% block content %}
-<main>
-    <section class="bienvenida text-center py-4 mb-5">
-        <h2 class="display-5 fw-bold">¡Bienvenido al <span class="text-primary">Mini Cine</span>!</h2>
-        <p class="lead">Administra tus películas, horarios y más desde aquí.</p>
-    </section>
-    <section class="peliculas">
-        <h2 class="mb-4 text-center text-secondary">Películas Destacadas</h2>
-        {% if peliculas %}
-        <div class="d-flex justify-content-center">
-            <div id="peliculasCarousel" class="carousel slide shadow-lg rounded-4 w-75" data-bs-ride="carousel" data-bs-interval="3000">
-                <div class="carousel-inner">
-                    {% for pelicula in peliculas %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        {% if pelicula.poster_path %}
-                        <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" class="d-block mx-auto rounded-4"
-                             style="max-height:400px;object-fit:cover;box-shadow:0 4px 24px rgba(0,0,0,0.3);" alt="{{ pelicula.title }}">
-                        {% else %}
-                        <img src="{% static 'img/no-poster.png' %}" class="d-block mx-auto rounded-4"
-                             style="max-height:400px;object-fit:cover;box-shadow:0 4px 24px rgba(0,0,0,0.3);" alt="Sin póster">
-                        {% endif %}
-                    </div>
-                    {% endfor %}
+    <main>
+        <section class="hero-section text-center py-5 mb-5"
+                 style="background: linear-gradient(135deg, rgba(255,193,7,0.1) 0%, rgba(0,0,0,0.8) 100%); border-radius: 15px;">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-3">
+                    🎬 <span class="text-warning">Mini Cine</span> 🍿
+                </h1>
+                <p class="lead fs-3 text-light mb-4">Tu portal de entretenimiento cinematográfico</p>
+                <p class="fs-5 text-warning">Descubre las mejores películas en cartelera y próximos estrenos</p>
+                <div class="mt-4">
+                    <a href="{% url 'api_movie' %}" class="btn btn-warning btn-lg me-3 px-4 py-3 fw-bold">
+                        <i class="fas fa-film me-2"></i>Ver Cartelera
+                    </a>
+                    <a href="{% url 'upcoming_releases' %}" class="btn btn-outline-warning btn-lg px-4 py-3 fw-bold">
+                        <i class="fas fa-calendar-alt me-2"></i>Próximos Estrenos
+                    </a>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#peliculasCarousel"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#peliculasCarousel"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
-        </div>
-        {% else %}
-        <p class="text-center text-muted">No hay películas para mostrar.</p>
-        {% endif %}
-    </section>
-</main>
+        </section>
+
+        <section class="peliculas">
+            <div class="container">
+                <h2 class="mb-5 text-center">
+                    <span class="text-warning">🌟</span>
+                    <span class="text-light">Películas Destacadas</span>
+                    <span class="text-warning">🌟</span>
+                </h2>
+                {% if peliculas %}
+                    <div class="d-flex justify-content-center">
+                        <div id="peliculasCarousel" class="carousel slide shadow-lg rounded-4 w-75"
+                             data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                {% for pelicula in peliculas %}
+                                    <button type="button" data-bs-target="#peliculasCarousel"
+                                            data-bs-slide-to="{{ forloop.counter0 }}"
+                                            {% if forloop.first %}class="active"{% endif %}
+                                            aria-label="Slide {{ forloop.counter }}"></button>
+                                {% endfor %}
+                            </div>
+                            <div class="carousel-inner">
+                                {% for pelicula in peliculas %}
+                                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                        {% if pelicula.poster_path %}
+                                            <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}"
+                                                 class="d-block mx-auto rounded-4"
+                                                 style="max-height:450px;object-fit:cover;box-shadow:0 8px 32px rgba(255,193,7,0.3);"
+                                                 alt="{{ pelicula.title }}">
+                                        {% else %}
+                                            <img src="{% static 'img/no-poster.png' %}"
+                                                 class="d-block mx-auto rounded-4"
+                                                 style="max-height:450px;object-fit:cover;box-shadow:0 8px 32px rgba(255,193,7,0.3);"
+                                                 alt="Sin póster">
+                                        {% endif %}
+                                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-3">
+                                            <h5 class="text-warning fw-bold">{{ pelicula.title }}</h5>
+                                            <p class="text-light">{{ pelicula.overview|truncatewords:20|default:"Una película imperdible" }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#peliculasCarousel"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon bg-warning rounded-circle p-3"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#peliculasCarousel"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon bg-warning rounded-circle p-3"></span>
+                            </button>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="text-center py-5">
+                        <i class="fas fa-film text-warning" style="font-size: 4rem;"></i>
+                        <p class="fs-4 text-muted mt-3">No hay películas para mostrar</p>
+                        <p class="text-light">¡Pronto tendremos contenido disponible!</p>
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
 {% endblock %}
